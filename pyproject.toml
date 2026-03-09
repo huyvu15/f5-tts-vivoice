@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "f5-tts-vietnamese-local"
+version = "0.1.0"
+description = "F5-TTS Vietnamese Local Runner"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "gradio",
+    "huggingface_hub",
+    "soundfile",
+    "torchaudio",
+    "pydub",
+    "numpy",
+    "static-ffmpeg",
+    "f5-tts @ git+https://github.com/nguyenthienhy/F5-TTS-Vietnamese.git"
+]
+
+[tool.setuptools]
+py-modules = ["app", "setup_model"]
+
+[project.scripts]
+setup-model = "setup_model:prepare_model"
